@@ -7,31 +7,31 @@ import java.util.Random;
 
 public class OPPG2b {
 
-	    public static void insertionSorter(Integer[] arr) {
-	        int n = arr.length;
+	    public static void insertionSorter(Integer[] a) {
+	        int n = a.length;
 	        for (int i = 1; i < n; i++) {
-	            int temp = arr[i];
+	            int temp = a[i];
 	            int j = i - 1;
-	            while (j >= 0 && temp < arr[j]) {
-	                arr[j + 1] = arr[j];
+	            while (j >= 0 && temp < a[j]) {
+	                a[j + 1] = a[j];
 	                j--;
 	            }
-	            arr[j + 1] = temp;
+	            a[j + 1] = temp;
 	        }
 	    }
 
-	    public static void utvalgSorter(Integer[] arr) {
-	        int n = arr.length;
+	    public static void utvalgSorter(Integer[] a) {
+	        int n = a.length;
 	        for (int i = 0; i < n - 1; i++) {
 	            int minIndex = i;
 	            for (int j = i + 1; j < n; j++) {
-	                if (arr[j] < arr[minIndex]) {
+	                if (a[j] < a[minIndex]) {
 	                    minIndex = j;
 	                }
 	            }
-	            int temp = arr[minIndex];
-	            arr[minIndex] = arr[i];
-	            arr[i] = temp;
+	            int temp = a[minIndex];
+	            a[minIndex] = a[i];
+	            a[i] = temp;
 	        }
 	    }
 
@@ -43,20 +43,20 @@ public class OPPG2b {
 	        }
 	    }
 
-	    private static int partition(Integer[] arr, int lav, int hoy) {
-	        int pivot = arr[hoy];
+	    private static int partition(Integer[] a, int lav, int hoy) {
+	        int pivot = a[hoy];
 	        int i = lav - 1;
 	        for (int j = lav; j < hoy; j++) {
-	            if (arr[j] < pivot) {
+	            if (a[j] < pivot) {
 	                i++;
-	                int temp = arr[i];
-	                arr[i] = arr[j];
-	                arr[j] = temp;
+	                int temp = a[i];
+	                a[i] = a[j];
+	                a[j] = temp;
 	            }
 	        }
-	        int temp = arr[i + 1];
-	        arr[i + 1] = arr[hoy];
-	        arr[hoy] = temp;
+	        int temp = a[i + 1];
+	        a[i + 1] = a[hoy];
+	        a[hoy] = temp;
 	        return i + 1;
 	    }
 
