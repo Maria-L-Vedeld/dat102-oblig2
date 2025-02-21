@@ -35,17 +35,18 @@ public class OPPG2a {
 	        }
 	    }
 
-	    public static void kvikkSorter(Integer[] arr, int lav, int hoy) {
+	    public static void kvikkSorter(Integer[] a, int lav, int hoy) {
 	        if (lav < hoy) {
-	            int pi = partition(arr, lav, hoy);
-	            kvikkSorter(arr, lav, pi - 1);
-	            kvikkSorter(arr, pi + 1, hoy);
+	            int midt = partition(a, lav, hoy);
+	            kvikkSorter(a, lav, midt - 1);
+	            kvikkSorter(a, midt + 1, hoy);
 	        }
 	    }
 
 	    private static int partition(Integer[] a, int lav, int hoy) {
 	        int pivot = a[hoy];
 	        int i = lav - 1;
+	        
 	        for (int j = lav; j < hoy; j++) {
 	            if (a[j] < pivot) {
 	                i++;
@@ -60,32 +61,32 @@ public class OPPG2a {
 	        return i + 1;
 	    }
 
-	    public static void mergeSorter(Integer[] arr) {
-	        Arrays.sort(arr);
+	    public static void mergeSorter(Integer[] a) {
+	        Arrays.sort(a);
 	    }
 
 	    public static void main(String[] args) {
 	        int[] sizes = {32000, 64000, 128000};
 	        for (int n : sizes) {
-	            Integer[] arr = new Random().ints(n, 0, 1000000).boxed().toArray(Integer[]::new);
+	            Integer[] a = new Random().ints(n, 0, 1000000).boxed().toArray(Integer[]::new);
 
 	            Instant start = Instant.now();
-	            insertionSorter(arr.clone());
+	            insertionSorter(a.clone());
 	            Instant slutt = Instant.now();
 	            System.out.println(n + "\tInnsetting: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
-	            utvalgSorter(arr.clone());
+	            utvalgSorter(a.clone());
 	            slutt = Instant.now();
 	            System.out.println(n + "\tUtvalg: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
-	            kvikkSorter(arr.clone(), 0, n - 1);
+	            kvikkSorter(a.clone(), 0, n - 1);
 	            slutt = Instant.now();
 	            System.out.println(n + "\tKvikk: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
-	            mergeSorter(arr.clone());
+	            mergeSorter(a.clone());
 	            slutt = Instant.now();
 	            System.out.println(n + "\tFlette: " + Duration.between(start, slutt).toMillis() + " ms");
 	            System.out.println("**************************************");
