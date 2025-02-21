@@ -5,9 +5,9 @@ import java.time.Instant;
 import java.util.Arrays;
 import java.util.Random;
 
-public class OPPG2a {
+public class OPPG2b {
 
-	    public static void insertionSorter(Integer[] arr) {
+	    public static void insertionSort(Integer[] arr) {
 	        int n = arr.length;
 	        for (int i = 1; i < n; i++) {
 	            int temp = arr[i];
@@ -20,7 +20,7 @@ public class OPPG2a {
 	        }
 	    }
 
-	    public static void utvalgSorter(Integer[] arr) {
+	    public static void selectionSort(Integer[] arr) {
 	        int n = arr.length;
 	        for (int i = 0; i < n - 1; i++) {
 	            int minIndex = i;
@@ -35,11 +35,11 @@ public class OPPG2a {
 	        }
 	    }
 
-	    public static void kvikkSorter(Integer[] arr, int low, int high) {
+	    public static void quickSort(Integer[] arr, int low, int high) {
 	        if (low < high) {
 	            int pi = partition(arr, low, high);
-	            kvikkSorter(arr, low, pi - 1);
-	            kvikkSorter(arr, pi + 1, high);
+	            quickSort(arr, low, pi - 1);
+	            quickSort(arr, pi + 1, high);
 	        }
 	    }
 
@@ -60,7 +60,7 @@ public class OPPG2a {
 	        return i + 1;
 	    }
 
-	    public static void mergeSorter(Integer[] arr) {
+	    public static void mergeSort(Integer[] arr) {
 	        Arrays.sort(arr);
 	    }
 
@@ -70,24 +70,24 @@ public class OPPG2a {
 	            Integer[] arr = new Random().ints(n, 0, 1000000).boxed().toArray(Integer[]::new);
 
 	            Instant start = Instant.now();
-	            insertionSorter(arr.clone());
+	            insertionSort(arr.clone());
 	            Instant end = Instant.now();
-	            System.out.println(n + "\tInnsetting: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println(n + "\tInsertion Sort: " + Duration.between(start, end).toMillis() + " ms");
 
 	            start = Instant.now();
-	            utvalgSorter(arr.clone());
+	            selectionSort(arr.clone());
 	            end = Instant.now();
-	            System.out.println(n + "\tUtvalg: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println(n + "\tSelection Sort: " + Duration.between(start, end).toMillis() + " ms");
 
 	            start = Instant.now();
-	            kvikkSorter(arr.clone(), 0, n - 1);
+	            quickSort(arr.clone(), 0, n - 1);
 	            end = Instant.now();
-	            System.out.println(n + "\tKvikk: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println(n + "\tQuick Sort: " + Duration.between(start, end).toMillis() + " ms");
 
 	            start = Instant.now();
-	            mergeSorter(arr.clone());
+	            mergeSort(arr.clone());
 	            end = Instant.now();
-	            System.out.println(n + "\tFlette: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println(n + "\tMerge Sort: " + Duration.between(start, end).toMillis() + " ms");
 	        }
 	    }
 	}
