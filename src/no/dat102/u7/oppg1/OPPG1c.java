@@ -23,21 +23,21 @@ public class OPPG1c {
 
 	        // Sorter to elementer av gangen
 	        for (int i = 2; i < n; i += 2) {
-	            int min = Math.min(arr[i - 1], arr[i]);
-	            int max = Math.max(arr[i - 1], arr[i]);
+	            int minst = Math.min(arr[i - 1], arr[i]);
+	            int storst = Math.max(arr[i - 1], arr[i]);
 
 	            int j = i - 2;
-	            while (max < arr[j]) {
+	            while (storst < arr[j]) {
 	                arr[j + 2] = arr[j];
 	                j--;
 	            }
-	            arr[j + 2] = max;
+	            arr[j + 2] = storst;
 
-	            while (min < arr[j]) {
+	            while (minst < arr[j]) {
 	                arr[j + 1] = arr[j];
 	                j--;
 	            }
-	            arr[j + 1] = min;
+	            arr[j + 1] = minst;
 	        }
 	    }
 

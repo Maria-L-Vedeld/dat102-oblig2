@@ -88,6 +88,7 @@ public class OPPG2b {
 	            mergeSorter(arr.clone());
 	            end = Instant.now();
 	            System.out.println(n + "\tFlette: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println("**************************************");
 	        }
 	    }
 	}
