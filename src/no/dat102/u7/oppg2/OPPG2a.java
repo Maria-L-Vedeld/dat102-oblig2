@@ -71,23 +71,23 @@ public class OPPG2a {
 
 	            Instant start = Instant.now();
 	            insertionSorter(arr.clone());
-	            Instant end = Instant.now();
-	            System.out.println(n + "\tInnsetting: " + Duration.between(start, end).toMillis() + " ms");
+	            Instant slutt = Instant.now();
+	            System.out.println(n + "\tInnsetting: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
 	            utvalgSorter(arr.clone());
-	            end = Instant.now();
-	            System.out.println(n + "\tUtvalg: " + Duration.between(start, end).toMillis() + " ms");
+	            slutt = Instant.now();
+	            System.out.println(n + "\tUtvalg: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
 	            kvikkSorter(arr.clone(), 0, n - 1);
-	            end = Instant.now();
-	            System.out.println(n + "\tKvikk: " + Duration.between(start, end).toMillis() + " ms");
+	            slutt = Instant.now();
+	            System.out.println(n + "\tKvikk: " + Duration.between(start, slutt).toMillis() + " ms");
 
 	            start = Instant.now();
 	            mergeSorter(arr.clone());
-	            end = Instant.now();
-	            System.out.println(n + "\tFlette: " + Duration.between(start, end).toMillis() + " ms");
+	            slutt = Instant.now();
+	            System.out.println(n + "\tFlette: " + Duration.between(start, slutt).toMillis() + " ms");
 	            System.out.println("**************************************");
 	        }
 	    }
