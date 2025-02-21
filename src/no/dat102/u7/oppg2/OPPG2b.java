@@ -67,7 +67,9 @@ public class OPPG2b {
 	    public static void main(String[] args) {
 	        int[] sizes = {32000, 64000, 128000};
 	        for (int n : sizes) {
-	            Integer[] a = new Random().ints(n, 0, 1000000).boxed().toArray(Integer[]::new);
+	        	Integer[] a = new Integer[n];
+	        	Arrays.fill(a, 42); // Fyller hele tabellen med tallet 42
+
 
 	            Instant start = Instant.now();
 	            insertionSorter(a.clone());
