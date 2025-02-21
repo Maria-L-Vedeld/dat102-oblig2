@@ -35,18 +35,18 @@ public class OPPG2a {
 	        }
 	    }
 
-	    public static void kvikkSorter(Integer[] arr, int low, int high) {
-	        if (low < high) {
-	            int pi = partition(arr, low, high);
-	            kvikkSorter(arr, low, pi - 1);
-	            kvikkSorter(arr, pi + 1, high);
+	    public static void kvikkSorter(Integer[] arr, int lav, int hoy) {
+	        if (lav < hoy) {
+	            int pi = partition(arr, lav, hoy);
+	            kvikkSorter(arr, lav, pi - 1);
+	            kvikkSorter(arr, pi + 1, hoy);
 	        }
 	    }
 
-	    private static int partition(Integer[] arr, int low, int high) {
-	        int pivot = arr[high];
-	        int i = low - 1;
-	        for (int j = low; j < high; j++) {
+	    private static int partition(Integer[] arr, int lav, int hoy) {
+	        int pivot = arr[hoy];
+	        int i = lav - 1;
+	        for (int j = lav; j < hoy; j++) {
 	            if (arr[j] < pivot) {
 	                i++;
 	                int temp = arr[i];
@@ -55,8 +55,8 @@ public class OPPG2a {
 	            }
 	        }
 	        int temp = arr[i + 1];
-	        arr[i + 1] = arr[high];
-	        arr[high] = temp;
+	        arr[i + 1] = arr[hoy];
+	        arr[hoy] = temp;
 	        return i + 1;
 	    }
 
@@ -88,6 +88,7 @@ public class OPPG2a {
 	            mergeSorter(arr.clone());
 	            end = Instant.now();
 	            System.out.println(n + "\tFlette: " + Duration.between(start, end).toMillis() + " ms");
+	            System.out.println("**************************************");
 	        }
 	    }
 	}
